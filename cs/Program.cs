@@ -38,7 +38,7 @@ namespace cs
         private static void fase2()
         {
             titol("fase2");
-            Console.Write($"introdueix el teu any de naixament (>{ANY_REFERENCIA}): ");
+            Console.Write($"Introdueix el teu any de naixament (>{ANY_REFERENCIA}): ");
             var inputText = Console.ReadLine();
             try
             {
@@ -60,8 +60,8 @@ namespace cs
 
         private static void fase3()
         {
-            titol("fase2");
-            Console.Write($"introdueix el teu any de naixament (>{ANY_REFERENCIA}): ");
+            titol("fase3");
+            Console.Write($"Introdueix el teu any de naixament (>{ANY_REFERENCIA}): ");
             var inputText = Console.ReadLine();
             try
             {

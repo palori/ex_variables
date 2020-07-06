@@ -1,89 +1,81 @@
 // JavaScript source code
-var nom="Pau", cognom1="Lopez", cognom2="Ribas";
-var dia=2, mes=7, any=2020;
-console.log(cognom1+" "+cognom2+", "+nom);
-console.log(dia+"/"+mes+"/"+any);
+var ANY_REFERENCIA = 1948; //any de traspas de referència
 
 
+hello_world();
+fase1();
+fase2();
+fase3();
 
 
-public const int ANY_REFERENCIA = 1948; //any de traspas de referència
-
-static void Main(string[] args)
+function titol(titol)
 {
-    hello_world();
-    fase1();
-    fase2();
-    fase3();
+    console.log("\n\n---\n"+titol+":\n");
 }
 
-private static void titol(string titol)
-{
-    console.log($"\n\n---\n{titol}:\n");
-}
-
-private static void hello_world()
+function hello_world()
 {
     titol("hello world");
     console.log("Hello World!");
-    console.log(DateTime.Now);
+    console.log(Date.now());
 }
 
-private static void fase1()
+function fase1()
 {
     titol("fase1");
-    string nom = "Pau", cognom1 = "Lopez", cognom2 = "Ribas";
-    int dia = 2, mes = 7, any = 2020;
-    console.log($"{cognom1} {cognom2}, {nom}");
-    console.log($"{dia}/{mes}/{any}");
+    var nom="Pau", cognom1="Lopez", cognom2="Ribas";
+    var dia=2, mes=7, any=2020;
+    console.log(cognom1+" "+cognom2+", "+nom);
+    console.log(dia+"/"+mes+"/"+any);
 }
 
-private static void fase2()
+function fase2()
 {
     titol("fase2");
-    console.log($"introdueix el teu any de naixament (>{ANY_REFERENCIA}): ");
-    var inputText = console.ReadLine();
+    //console.log("Introdueix el teu any de naixament (>"+ANY_REFERENCIA+"): "); // en aquest cas l'imput s'hauria de fer des del html.
+    var inputText = "1993"; // provar diferents valors, i paraules
     try
     {
-        var any = int.Parse(inputText);
+        var any = parseInt(inputText);
         if(any > ANY_REFERENCIA)
         {
-            int anys_traspas = (any-ANY_REFERENCIA)/4;
-            console.log($"\nEntre {ANY_REFERENCIA} hi ha {anys_traspas} anys de traspàs.");
+            var anys_traspas = Math.trunc((any-ANY_REFERENCIA)/4);
+            console.log("\nEntre "+ANY_REFERENCIA+" hi ha "+anys_traspas+" anys de traspàs.");
         }
         else{
-            console.log($"El número[{inputText}] ha de ser més gran que {ANY_REFERENCIA}.");
+            console.log("El número["+inputText+"] ha de ser més gran que "+ANY_REFERENCIA+".");
         }
     }
-    catch (System.Exception e1)
+    catch (error)
     {
-        console.log($"El format del número[{inputText}] no és correcte.");
+        console.log("El format del número["+inputText+"] no és correcte."); // no entenc perque si inputText = "hola", no entra al catch i llavors va al else...
+        console.error(error);
     }
 }
 
-private static void fase3()
+function fase3()
 {
     titol("fase2");
-    console.log($"introdueix el teu any de naixament (>{ANY_REFERENCIA}): ");
-    var inputText = console.ReadLine();
+    //console.log("Introdueix el teu any de naixament (>"+ANY_REFERENCIA+"): "); // en aquest cas l'imput s'hauria de fer des del html.
+    var inputText = "1993"; // provar diferents valors, i paraules
     try
     {
-        var any = int.Parse(inputText);
+        var any = parseInt(inputText);
         if(any > ANY_REFERENCIA)
         {
-            int anys_traspas = (any-ANY_REFERENCIA)/4;
-            int[] array1 = new int[anys_traspas+1];
-            array1.SetValue(ANY_REFERENCIA,0);
-            console.log($"Anys de traspàs: {array1[0]}");
-            for (int i = 1; i < array1.Length; i++)
+            var anys_traspas = Math.trunc((any-ANY_REFERENCIA)/4);
+            var array1 = new Array(anys_traspas+1);
+            array1[0] = ANY_REFERENCIA;
+            console.log("Anys de traspàs:\n    "+array1[0]);
+            for (var i = 1; i < array1.length; i++)
             {
                 array1[i] = array1[i-1]+4;
-                console.log($", {array1[i]}");
+                console.log("    "+array1[i]);
             }
-            console.log($"\nEntre {ANY_REFERENCIA} hi ha {anys_traspas} anys de traspàs.");
+            console.log("\nEntre "+ANY_REFERENCIA+" hi ha "+anys_traspas+" anys de traspàs.");
 
-            bool es_traspas = false;
-            console.log($"El {any}, el meu any de naixement, ");
+            var  es_traspas = false;
+            console.log("El "+any+", el meu any de naixement, ");
             if (any == array1[anys_traspas])
             {
                 es_traspas = true;
@@ -95,11 +87,12 @@ private static void fase3()
             }
         }
         else{
-            console.log($"El número[{inputText}] ha de ser més gran que {ANY_REFERENCIA}.");
+            console.log("El número["+inputText+"] ha de ser més gran que "+ANY_REFERENCIA+".");
         }
     }
-    catch (System.Exception e1)
+    catch (error)
     {
-        console.log($"El format del número[{inputText}] no és correcte.");
+        console.log("El format del número["+inputText+"] no és correcte."); // no entenc perque si inputText = "hola", no entra al catch i llavors va al else...
+        console.error(error);
     }
 }
